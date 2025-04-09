@@ -1,0 +1,360 @@
+body {
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+    transition: width 0.2s ease, padding 0.2s ease; /* Smooth size transition */
+    position: relative; /* Needed for absolute positioning of the cycle button */
+    min-height: 160px; /* Adjusted min-height slightly */
+}
+
+/* Default (1x - medium) styles */
+body[data-size="medium"] {
+    padding: 14px 21px 0px 21px; /* Reduced bottom padding */
+    width: 420px;
+}
+body[data-size="medium"] h1 { font-size: 1.7em; margin: 0 0 21px 0; } /* Removed top margin */
+body[data-size="medium"] label { margin-bottom: 7px; font-size: 1.1em; }
+body[data-size="medium"] textarea { width: 100%; padding: 7px; margin-bottom: 5px; font-size: 1.25em; box-shadow: 6px 6px 0px #aaa; border-width: 2px; box-sizing: border-box; } /* Reset padding-top */
+body[data-size="medium"] p { font-size: 1.1em; margin-bottom: 15px; } /* Reduced margin */
+body[data-size="medium"] button#saveButton { padding: 8px 15px; font-size: 0.9em; box-shadow: 4px 4px 0px #aaa; border-width: 2px; height: 40px; } /* Adjusted padding, font-size, shadow, added height */
+body[data-size="medium"] button#saveButton:active { box-shadow: 1px 1px 0px #aaa; transform: translate(3px, 3px); } /* Adjusted active state */
+body[data-size="medium"] button#sizeCycleButton { font-size: 0.9em; padding: 8px; width: 40px; height: 40px; box-shadow: 4px 4px 0px #aaa; border-width: 2px; } /* Ensured height matches saveButton */
+body[data-size="medium"] .variables-hint { font-size: 0.9em; margin-bottom: 4px; }
+body[data-size="medium"] .textarea-container { margin-bottom: 15px; }
+
+/* Smaller (0.75x) styles */
+body[data-size="smaller"] { /* Renamed from small */
+    padding: 10px 16px 0px 16px; /* Reduced bottom padding */
+    width: 315px;  /* Approx 0.75x */
+}
+body[data-size="smaller"] h1 { font-size: 1.28em; margin: 0 0 16px 0; } /* Removed top margin */
+body[data-size="smaller"] label { margin-bottom: 5px; font-size: 0.83em; } /* Approx 0.75x */
+body[data-size="smaller"] textarea { width: 100%; padding: 5px; margin-bottom: 4px; font-size: 0.94em; box-shadow: 4px 4px 0px #aaa; border-width: 2px; box-sizing: border-box; } /* Reset padding-top */
+body[data-size="smaller"] p { font-size: 0.83em; margin-bottom: 11px; } /* Reduced margin */
+body[data-size="smaller"] button#saveButton { padding: 6px 11px; font-size: 0.7em; box-shadow: 3px 3px 0px #aaa; border-width: 2px; height: 30px; } /* Adjusted padding, font-size, shadow, added height */
+body[data-size="smaller"] button#saveButton:active { box-shadow: 1px 1px 0px #aaa; transform: translate(2px, 2px); } /* Adjusted active state */
+body[data-size="smaller"] button#sizeCycleButton { font-size: 0.7em; padding: 6px; width: 30px; height: 30px; box-shadow: 3px 3px 0px #aaa; border-width: 2px; } /* Ensured height matches saveButton */
+body[data-size="smaller"] .variables-hint { font-size: 0.8em; margin-bottom: 3px; }
+body[data-size="smaller"] .textarea-container { margin-bottom: 11px; }
+
+/* Larger (1.25x) styles */
+body[data-size="larger"] { /* Renamed from large */
+    padding: 18px 26px 0px 26px; /* Reduced bottom padding */
+    width: 525px;  /* Approx 1.25x */
+}
+body[data-size="larger"] h1 { font-size: 2.13em; margin: 0 0 26px 0; } /* Removed top margin */
+body[data-size="larger"] label { margin-bottom: 9px; font-size: 1.38em; } /* Approx 1.25x */
+body[data-size="larger"] textarea { width: 100%; padding: 9px; margin-bottom: 6px; font-size: 1.56em; box-shadow: 8px 8px 0px #aaa; border-width: 2px; box-sizing: border-box; } /* Reset padding-top */
+body[data-size="larger"] p { font-size: 1.38em; margin-bottom: 18px; } /* Reduced margin */
+body[data-size="larger"] button#saveButton { padding: 10px 18px; font-size: 1.1em; box-shadow: 5px 5px 0px #aaa; border-width: 2px; height: 50px; } /* Adjusted padding, font-size, shadow, added height */
+body[data-size="larger"] button#saveButton:active { box-shadow: 2px 2px 0px #aaa; transform: translate(3px, 3px); } /* Adjusted active state */
+body[data-size="larger"] button#sizeCycleButton { font-size: 1.1em; padding: 10px; width: 50px; height: 50px; box-shadow: 5px 5px 0px #aaa; border-width: 2px; } /* Ensured height matches saveButton */
+body[data-size="larger"] .variables-hint { font-size: 1em; margin-bottom: 5px; }
+body[data-size="larger"] .textarea-container { margin-bottom: 18px; }
+
+/* General styles (apply regardless of size) */
+h1 {
+    color: #111;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+}
+
+textarea {
+    border-style: solid;
+    border-color: #111;
+    background-color: #fff;
+    resize: vertical;
+    max-height: 250px; /* Limit vertical resizing */
+    min-height: 55px; /* Add minimum width */
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #007bff; /* Simple focus indicator */
+}
+
+p {
+    color: #555;
+}
+
+p code {
+    background-color: #ddd;
+    padding: 2px 4px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #ffd700; /* Yellow accent */
+    color: #111;
+    border-style: solid;
+    border-color: #111;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    display: flex; /* Added for centering content */
+    align-items: center; /* Added for centering content */
+    justify-content: center; /* Added for centering content */
+}
+
+button:hover {
+    background-color: #f0c400;
+}
+
+.controls {
+    display: flex; /* Keep flex for title alignment if needed */
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Removed .size-selector styles */
+
+/* Style for the new button container */
+.button-container {
+    display: flex;
+    align-items: center; /* Vertically align buttons */
+    justify-content: space-between; /* Push buttons to opposite ends */
+    margin-top: 15px; /* Space above the buttons */
+}
+
+.left-buttons, .right-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Power button styles */
+.power-button {
+    background-color: #fff; /* White when on */
+    color: #111; /* Dark text */
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    border-radius: 0; /* Square like other buttons */
+    box-shadow: 4px 4px 0px #aaa;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #111;
+    transition: background-color 0.3s ease, box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+.power-button.off {
+    background-color: #ffd700; /* Yellow when off (like other buttons) */
+}
+
+.power-button:active {
+    box-shadow: 1px 1px 0px #aaa;
+    transform: translate(3px, 3px);
+}
+
+/* Size adjustments for different screen sizes */
+body[data-size="smaller"] .power-button {
+    width: 30px;
+    height: 30px;
+    padding: 6px;
+    box-shadow: 3px 3px 0px #aaa;
+}
+
+body[data-size="larger"] .power-button {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    box-shadow: 5px 5px 0px #aaa;
+}
+
+/* App disabled state */
+body.app-disabled textarea,
+body.app-disabled #saveButton,
+body.app-disabled #sizeCycleButton,
+body.app-disabled .info-button {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+body.app-disabled .tip-section {
+    opacity: 0.7;
+}
+
+body.app-disabled h1,
+body.app-disabled label,
+body.app-disabled p {
+    opacity: 0.6;
+}
+
+/* Icon size adjustments */
+.power-button svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Style for the new button container */
+.button-container {
+    display: flex;
+    align-items: center; /* Vertically align buttons */
+    justify-content: space-between; /* Push buttons to opposite ends */
+    /* gap: 10px; */ /* Gap is no longer needed with space-between */
+    margin-top: 15px; /* Space above the buttons */
+}
+
+#sizeCycleButton {
+    background-color: #fff; /* Changed from #eee to white */
+    border-radius: 0;
+    line-height: 1;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+#sizeCycleButton:hover {
+    background-color: #f5f5f5; /* Changed hover state to be slightly grey */
+}
+
+/* Tip section styles */
+.tip-section {
+    margin-top: 20px;
+    margin-bottom: 0px; /* Added small margin at bottom */
+}
+
+.tip-section hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 5px 0;
+}
+
+.tip-text {
+    text-align: center;
+    font-size: 0.9em;
+    margin: 8px 0;
+    color: #666;
+}
+
+/* Size-specific styles for tip text */
+body[data-size="smaller"] .tip-text { font-size: 0.7em; }
+body[data-size="larger"] .tip-text { font-size: 0.9em; }
+
+/* Label with info button */
+.label-with-info {
+    display: flex;
+    align-items: center; /* Keep center alignment as base */
+    gap: 6px;
+}
+
+.info-button {
+    cursor: help;
+    user-select: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3a3a3a;
+    width: 16px;
+    height: 16px;
+    margin-right: 1px;
+    position: relative;
+    top: -5px; /* Increased negative value to move it up more */
+    vertical-align: middle;
+}
+
+/* Make sure SVG fills the container */
+.info-button svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+    position: relative;
+    top: 0; /* Adjusted positioning */
+}
+
+/* Custom tooltip styles */
+.info-button[data-tooltip]::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 50%;
+    left: 100%; /* Position to the right */
+    transform: translateY(-50%); /* Center vertically */
+    padding: 8px 10px;
+    background-color: #333333ee;
+    color: white;
+    border-radius: 4px;
+    font-size: 14px;
+    white-space: normal;
+    max-width: 380px;
+    width: max-content;
+    text-align: left;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 10;
+    pointer-events: none;
+    margin-left: 10px; /* Space between icon and tooltip */
+}
+
+/* Arrow for tooltip - pointing left */
+.info-button[data-tooltip]::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 100%; /* Position to the right of the icon */
+    transform: translateY(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #333 transparent transparent; /* Arrow pointing left */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+/* Show tooltip on hover */
+.info-button:hover[data-tooltip]::before,
+.info-button:hover[data-tooltip]::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Size adjustments for different screens */
+body[data-size="smaller"] .info-button svg { width: 14px; height: 14px; }
+body[data-size="larger"] .info-button svg { width: 18px; height: 18px; }
+
+/* Adjust label margins since they're now in a container */
+.label-with-info label {
+    margin-bottom: 0;
+}
+
+/* Size-specific adjustments for the label container */
+body[data-size="medium"] .label-with-info { margin-bottom: 7px; }
+body[data-size="smaller"] .label-with-info { margin-bottom: 5px; }
+body[data-size="larger"] .label-with-info { margin-bottom: 9px; }
+
+/* Variables hint styling */
+.variables-hint {
+    font-size: 0.9em; /* Increased font size */
+    color: #666;
+    margin: 0 0 4px 0;
+    padding: 0;
+}
+
+/* Adjust size-specific styles for the variables hint */
+body[data-size="medium"] .variables-hint { font-size: 0.9em; margin-bottom: 4px; }
+body[data-size="smaller"] .variables-hint { font-size: 0.8em; margin-bottom: 3px; } /* Still slightly smaller for small screens */
+body[data-size="larger"] .variables-hint { font-size: 1em; margin-bottom: 5px; } /* Slightly larger for big screens */
+
+/* Textarea container and variables hint */
+.textarea-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* Update textarea styles to work with container */
+body[data-size="medium"] textarea { width: 100%; box-sizing: border-box; }
+body[data-size="smaller"] textarea { width: 100%; box-sizing: border-box; }
+body[data-size="larger"] textarea { width: 100%; box-sizing: border-box; }
+
+/* Update textarea margins */
+body[data-size="medium"] .textarea-container { margin-bottom: 15px; }
+body[data-size="smaller"] .textarea-container { margin-bottom: 11px; }
+body[data-size="larger"] .textarea-container { margin-bottom: 18px; }

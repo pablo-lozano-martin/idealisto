@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "idealisto",
+  "version": "1.0",
+  "description": "Opens WhatsApp Web chat automatically when clicking 'Ver teléfono' on Idealista listings.",
+  "permissions": [
+    "storage",
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://*.idealista.com/*",
+    "https://web.whatsapp.com/"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.idealista.com/inmueble/*", "https://*.idealista.com/alquiler-viviendas/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

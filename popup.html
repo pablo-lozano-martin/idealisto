@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>idealisto</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="controls">
+        <h1>idealisto</h1>
+    </div>
+    <div class="label-with-info">
+        <span class="info-button" id="infoButton" data-tooltip="Esta extensión abre WhatsApp Web automáticamente al hacer clic en 'Ver teléfono'. Personaliza el mensaje que se enviará usando las variables disponibles.">
+            <svg viewBox="0 0 24 24" width="16" height="16">
+                <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+                <line x1="12" y1="8" x2="12" y2="12" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="16" r="1" fill="currentColor"/>
+            </svg>
+        </span>
+        <label for="messageTemplate">Plantilla de Mensaje WhatsApp:</label>
+    </div>
+    
+    <p class="variables-hint">Usa <code>{calle}</code>, <code>{numero}</code>, <code>{barrio}</code>, <code>{ciudad}</code> como variables.</p>
+    <textarea id="messageTemplate" rows="5" placeholder="Ejemplo: Hola, vi tu anuncio en Idealista para la propiedad en {calle}, {numero} ({barrio}). ¿Sigue disponible?"></textarea>
+    
+    <div class="button-container"> <!-- Added container -->
+        <div class="left-buttons">
+            <button id="powerButton" class="power-button" title="Activar/Desactivar extensión">
+                <svg viewBox="0 0 24 24" width="20" height="20">
+                    <path fill="currentColor" d="M13,3H11V13H13V3M17.83,5.17L16.41,6.59C18.05,7.91 19,9.9 19,12A7,7 0 0,1 12,19C8.14,19 5,15.86 5,12C5,9.91 5.95,7.91 7.58,6.58L6.17,5.17C4.08,6.85 3,9.36 3,12A9,9 0 0,0 12,21A9,9 0 0,0 21,12C21,9.37 19.92,6.85 17.83,5.17Z"/>
+                </svg>
+            </button>
+        </div>
+        <div class="right-buttons">
+            <button id="saveButton">Guardar Plantilla</button>
+            <button id="sizeCycleButton" title="Cambiar Tamaño"></button>
+        </div>
+    </div>
+
+    <div class="tip-section">
+        <hr>
+        <p class="tip-text">¿Te resulta útil? <a href="https://google.com" target="_blank">¡Invítame a un café! ☕</a></p>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

@@ -183,7 +183,8 @@ body[data-size="larger"] .power-button {
 body.app-disabled textarea,
 body.app-disabled #saveButton,
 body.app-disabled #infoToggleButton,
-body.app-disabled #sizeCycleButton { /* Removed .info-button */
+body.app-disabled #sizeCycleButton,
+body.app-disabled label { /* Added label selector */
     opacity: 0.4;
     pointer-events: none;
 }

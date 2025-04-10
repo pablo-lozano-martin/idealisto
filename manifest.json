@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "idealisto",
   "version": "1.0",
-  "description": "Opens WhatsApp Web chat automatically when clicking 'Ver teléfono' on Idealista listings.",
+  "description": "¡Contacta al instante con anunciantes de Idealista por WhatsApp!",
   "permissions": [
     "storage",
     "tabs",

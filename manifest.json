@@ -10,14 +10,14 @@
   ],
   "host_permissions": [
     "https://*.idealista.com/*",
-    "https://web.whatsapp.com/"
+    "https://web.whatsapp.com/*"
   ],
   "background": {
     "service_worker": "background.js"
   },
   "content_scripts": [
     {
-      "matches": ["https://*.idealista.com/inmueble/*", "https://*.idealista.com/alquiler-viviendas/*"],
+      "matches": ["https://*.idealista.com/inmueble/*", "https://*.idealista.com/alquiler-viviendas/*", "https://*.idealista.com/venta-viviendas/*"],
       "js": ["content.js"]
     }
   ],

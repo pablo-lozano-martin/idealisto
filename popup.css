@@ -15,11 +15,13 @@ body[data-size="medium"] h1 { font-size: 1.7em; margin: 0 0 21px 0; } /* Removed
 body[data-size="medium"] label { margin-bottom: 7px; font-size: 1.1em; }
 body[data-size="medium"] textarea { width: 100%; padding: 7px; margin-bottom: 5px; font-size: 1.25em; box-shadow: 6px 6px 0px #aaa; border-width: 2px; box-sizing: border-box; } /* Reset padding-top */
 body[data-size="medium"] p { font-size: 1.1em; margin-bottom: 15px; } /* Reduced margin */
-body[data-size="medium"] button#saveButton { padding: 8px 15px; font-size: 0.9em; box-shadow: 4px 4px 0px #aaa; border-width: 2px; height: 40px; } /* Adjusted padding, font-size, shadow, added height */
+body[data-size="medium"] button#saveButton { padding: 8px 15px; font-size: 1em; box-shadow: 4px 4px 0px #aaa; border-width: 2px; height: 40px; flex-grow: 1; flex-basis: 0; } /* Adjusted padding, font-size, shadow, added height, added flex-grow, added flex-basis */
+body[data-size="medium"] button#infoToggleButton { padding: 8px 15px; font-size: 1em; box-shadow: 4px 4px 0px #aaa; border-width: 2px; height: 40px; flex-grow: 1; flex-basis: 0; } /* Added styles to match saveButton, added flex-basis */
 body[data-size="medium"] button#saveButton:active { box-shadow: 1px 1px 0px #aaa; transform: translate(3px, 3px); } /* Adjusted active state */
-body[data-size="medium"] button#sizeCycleButton { font-size: 0.9em; padding: 8px; width: 40px; height: 40px; box-shadow: 4px 4px 0px #aaa; border-width: 2px; } /* Ensured height matches saveButton */
-body[data-size="medium"] .variables-hint { font-size: 0.9em; margin-bottom: 4px; }
+body[data-size="medium"] button#infoToggleButton:active { box-shadow: 1px 1px 0px #aaa; transform: translate(3px, 3px); } /* Added active state */
+body[data-size="medium"] button#sizeCycleButton { font-size: 1em; padding: 8px; width: 40px; height: 40px; box-shadow: 4px 4px 0px #aaa; border-width: 2px; flex-shrink: 0; } /* Ensured height matches saveButton, added flex-shrink */
 body[data-size="medium"] .textarea-container { margin-bottom: 15px; }
+body[data-size="medium"] .bottom-section p { font-size: 0.8em; } /* Added specific font size for medium view */
 
 /* Smaller (0.75x) styles */
 body[data-size="smaller"] { /* Renamed from small */
@@ -30,10 +32,11 @@ body[data-size="smaller"] h1 { font-size: 1.28em; margin: 0 0 16px 0; } /* Remov
 body[data-size="smaller"] label { margin-bottom: 5px; font-size: 0.83em; } /* Approx 0.75x */
 body[data-size="smaller"] textarea { width: 100%; padding: 5px; margin-bottom: 4px; font-size: 0.94em; box-shadow: 4px 4px 0px #aaa; border-width: 2px; box-sizing: border-box; } /* Reset padding-top */
 body[data-size="smaller"] p { font-size: 0.83em; margin-bottom: 11px; } /* Reduced margin */
-body[data-size="smaller"] button#saveButton { padding: 6px 11px; font-size: 0.7em; box-shadow: 3px 3px 0px #aaa; border-width: 2px; height: 30px; } /* Adjusted padding, font-size, shadow, added height */
+body[data-size="smaller"] button#saveButton { padding: 6px 11px; font-size: 0.9em; box-shadow: 3px 3px 0px #aaa; border-width: 2px; height: 30px; flex-grow: 1; flex-basis: 0; } /* Adjusted padding, font-size, shadow, added height, added flex-grow, added flex-basis */
+body[data-size="smaller"] button#infoToggleButton { padding: 6px 11px; font-size: 0.9em; box-shadow: 3px 3px 0px #aaa; border-width: 2px; height: 30px; flex-grow: 1; flex-basis: 0; } /* Added styles to match saveButton, added flex-basis */
 body[data-size="smaller"] button#saveButton:active { box-shadow: 1px 1px 0px #aaa; transform: translate(2px, 2px); } /* Adjusted active state */
-body[data-size="smaller"] button#sizeCycleButton { font-size: 0.7em; padding: 6px; width: 30px; height: 30px; box-shadow: 3px 3px 0px #aaa; border-width: 2px; } /* Ensured height matches saveButton */
-body[data-size="smaller"] .variables-hint { font-size: 0.8em; margin-bottom: 3px; }
+body[data-size="smaller"] button#infoToggleButton:active { box-shadow: 1px 1px 0px #aaa; transform: translate(2px, 2px); } /* Added active state */
+body[data-size="smaller"] button#sizeCycleButton { font-size: 0.9em; padding: 6px; width: 30px; height: 30px; box-shadow: 3px 3px 0px #aaa; border-width: 2px; flex-shrink: 0; } /* Ensured height matches saveButton, added flex-shrink */
 body[data-size="smaller"] .textarea-container { margin-bottom: 11px; }
 
 /* Larger (1.25x) styles */
@@ -45,10 +48,11 @@ body[data-size="larger"] h1 { font-size: 2.13em; margin: 0 0 26px 0; } /* Remove
 body[data-size="larger"] label { margin-bottom: 9px; font-size: 1.38em; } /* Approx 1.25x */
 body[data-size="larger"] textarea { width: 100%; padding: 9px; margin-bottom: 6px; font-size: 1.56em; box-shadow: 8px 8px 0px #aaa; border-width: 2px; box-sizing: border-box; } /* Reset padding-top */
 body[data-size="larger"] p { font-size: 1.38em; margin-bottom: 18px; } /* Reduced margin */
-body[data-size="larger"] button#saveButton { padding: 10px 18px; font-size: 1.1em; box-shadow: 5px 5px 0px #aaa; border-width: 2px; height: 50px; } /* Adjusted padding, font-size, shadow, added height */
+body[data-size="larger"] button#saveButton { padding: 10px 18px; font-size: 1.2em; box-shadow: 5px 5px 0px #aaa; border-width: 2px; height: 50px; flex-grow: 1; flex-basis: 0; } /* Adjusted padding, font-size, shadow, added height, added flex-grow, added flex-basis */
+body[data-size="larger"] button#infoToggleButton { padding: 10px 18px; font-size: 1.2em; box-shadow: 5px 5px 0px #aaa; border-width: 2px; height: 50px; flex-grow: 1; flex-basis: 0; } /* Added styles to match saveButton, added flex-basis */
 body[data-size="larger"] button#saveButton:active { box-shadow: 2px 2px 0px #aaa; transform: translate(3px, 3px); } /* Adjusted active state */
-body[data-size="larger"] button#sizeCycleButton { font-size: 1.1em; padding: 10px; width: 50px; height: 50px; box-shadow: 5px 5px 0px #aaa; border-width: 2px; } /* Ensured height matches saveButton */
-body[data-size="larger"] .variables-hint { font-size: 1em; margin-bottom: 5px; }
+body[data-size="larger"] button#infoToggleButton:active { box-shadow: 2px 2px 0px #aaa; transform: translate(3px, 3px); } /* Added active state */
+body[data-size="larger"] button#sizeCycleButton { font-size: 1.2em; padding: 10px; width: 50px; height: 50px; box-shadow: 5px 5px 0px #aaa; border-width: 2px; flex-shrink: 0; } /* Ensured height matches saveButton, added flex-shrink */
 body[data-size="larger"] .textarea-container { margin-bottom: 18px; }
 
 /* General styles (apply regardless of size) */
@@ -68,7 +72,7 @@ textarea {
     background-color: #fff;
     resize: vertical;
     max-height: 250px; /* Limit vertical resizing */
-    min-height: 55px; /* Add minimum width */
+    min-height: 60px; /* Add minimum width */
 }
 
 textarea:focus {
@@ -99,6 +103,7 @@ button {
     display: flex; /* Added for centering content */
     align-items: center; /* Added for centering content */
     justify-content: center; /* Added for centering content */
+    min-width: 0; /* Allow buttons to shrink if needed */
 }
 
 button:hover {
@@ -120,12 +125,18 @@ button:hover {
     align-items: center; /* Vertically align buttons */
     justify-content: space-between; /* Push buttons to opposite ends */
     margin-top: 15px; /* Space above the buttons */
+    gap: 10px; /* Add gap between left and right button groups */
 }
 
 .left-buttons, .right-buttons {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+.right-buttons {
+    flex-grow: 1; /* Allow this container to grow */
+    min-width: 0; /* Prevent overflow issues */
 }
 
 /* Power button styles */
@@ -141,6 +152,7 @@ button:hover {
     border-style: solid;
     border-color: #111;
     transition: background-color 0.3s ease, box-shadow 0.2s ease, transform 0.1s ease;
+    flex-shrink: 0; /* Prevent power button from shrinking */
 }
 
 .power-button.off {
@@ -170,20 +182,14 @@ body[data-size="larger"] .power-button {
 /* App disabled state */
 body.app-disabled textarea,
 body.app-disabled #saveButton,
-body.app-disabled #sizeCycleButton,
-body.app-disabled .info-button {
+body.app-disabled #infoToggleButton,
+body.app-disabled #sizeCycleButton { /* Removed .info-button */
     opacity: 0.4;
     pointer-events: none;
 }
 
-body.app-disabled .tip-section {
+body.app-disabled .bottom-section { /* Renamed from .tip-section */
     opacity: 0.7;
-}
-
-body.app-disabled h1,
-body.app-disabled label,
-body.app-disabled p {
-    opacity: 0.6;
 }
 
 /* Icon size adjustments */
@@ -206,118 +212,53 @@ body.app-disabled p {
     border-radius: 0;
     line-height: 1;
     text-align: center;
-    flex-shrink: 0;
+    flex-shrink: 0; /* Prevent size cycle button from shrinking */
 }
 
 #sizeCycleButton:hover {
     background-color: #f5f5f5; /* Changed hover state to be slightly grey */
 }
 
-/* Tip section styles */
-.tip-section {
+/* Bottom section styles */
+.bottom-section { /* Renamed from .tip-section */
     margin-top: 20px;
-    margin-bottom: 0px; /* Added small margin at bottom */
+    margin-bottom: 10px; /* Added some bottom margin */
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Push items to ends */
+    align-items: center; /* Vertically align items */
+    gap: 15px; /* Add some space between items */
+    border-top: 1px solid #ccc; /* Add top border */
+    padding-top: 8px; /* Add padding above text */
 }
 
-.tip-section hr {
-    border: none;
-    border-top: 1px solid #ccc;
-    margin: 5px 0;
+.bottom-section p { /* General style for paragraphs in this section */
+    margin: 0; /* Remove default paragraph margins */
+    font-size: 0.8em; /* Slightly smaller font */
+    color: #666;
+    line-height: 1.3;
+}
+
+.disclaimer-text {
+    text-align: left; /* Ensure left alignment */
+    flex-shrink: 1; /* Allow shrinking if needed */
 }
 
 .tip-text {
-    text-align: center;
-    font-size: 0.9em;
-    margin: 8px 0;
-    color: #666;
+    text-align: right; /* Ensure right alignment */
+    flex-shrink: 0; /* Prevent shrinking */
+    white-space: nowrap; /* Prevent wrapping */
 }
 
-/* Size-specific styles for tip text */
-body[data-size="smaller"] .tip-text { font-size: 0.7em; }
-body[data-size="larger"] .tip-text { font-size: 0.9em; }
+/* Size-specific styles for bottom section text */
+body[data-size="smaller"] .bottom-section p { font-size: 0.7em; }
+body[data-size="larger"] .bottom-section p { font-size: 0.85em; }
 
 /* Label with info button */
 .label-with-info {
     display: flex;
     align-items: center; /* Keep center alignment as base */
-    gap: 6px;
+    /* gap: 6px; */ /* Removed gap */
 }
-
-.info-button {
-    cursor: help;
-    user-select: none;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #3a3a3a;
-    width: 16px;
-    height: 16px;
-    margin-right: 1px;
-    position: relative;
-    top: -5px; /* Increased negative value to move it up more */
-    vertical-align: middle;
-}
-
-/* Make sure SVG fills the container */
-.info-button svg {
-    width: 16px;
-    height: 16px;
-    display: block;
-    position: relative;
-    top: 0; /* Adjusted positioning */
-}
-
-/* Custom tooltip styles */
-.info-button[data-tooltip]::before {
-    content: attr(data-tooltip);
-    position: absolute;
-    top: 50%;
-    left: 100%; /* Position to the right */
-    transform: translateY(-50%); /* Center vertically */
-    padding: 8px 10px;
-    background-color: #333333ee;
-    color: white;
-    border-radius: 4px;
-    font-size: 14px;
-    white-space: normal;
-    max-width: 380px;
-    width: max-content;
-    text-align: left;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.2s ease;
-    z-index: 10;
-    pointer-events: none;
-    margin-left: 10px; /* Space between icon and tooltip */
-}
-
-/* Arrow for tooltip - pointing left */
-.info-button[data-tooltip]::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 100%; /* Position to the right of the icon */
-    transform: translateY(-50%);
-    border-width: 5px;
-    border-style: solid;
-    border-color: transparent #333 transparent transparent; /* Arrow pointing left */
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.2s ease;
-    z-index: 10;
-}
-
-/* Show tooltip on hover */
-.info-button:hover[data-tooltip]::before,
-.info-button:hover[data-tooltip]::after {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Size adjustments for different screens */
-body[data-size="smaller"] .info-button svg { width: 14px; height: 14px; }
-body[data-size="larger"] .info-button svg { width: 18px; height: 18px; }
 
 /* Adjust label margins since they're now in a container */
 .label-with-info label {
@@ -328,19 +269,6 @@ body[data-size="larger"] .info-button svg { width: 18px; height: 18px; }
 body[data-size="medium"] .label-with-info { margin-bottom: 7px; }
 body[data-size="smaller"] .label-with-info { margin-bottom: 5px; }
 body[data-size="larger"] .label-with-info { margin-bottom: 9px; }
-
-/* Variables hint styling */
-.variables-hint {
-    font-size: 0.9em; /* Increased font size */
-    color: #666;
-    margin: 0 0 4px 0;
-    padding: 0;
-}
-
-/* Adjust size-specific styles for the variables hint */
-body[data-size="medium"] .variables-hint { font-size: 0.9em; margin-bottom: 4px; }
-body[data-size="smaller"] .variables-hint { font-size: 0.8em; margin-bottom: 3px; } /* Still slightly smaller for small screens */
-body[data-size="larger"] .variables-hint { font-size: 1em; margin-bottom: 5px; } /* Slightly larger for big screens */
 
 /* Textarea container and variables hint */
 .textarea-container {
@@ -358,3 +286,112 @@ body[data-size="larger"] textarea { width: 100%; box-sizing: border-box; }
 body[data-size="medium"] .textarea-container { margin-bottom: 15px; }
 body[data-size="smaller"] .textarea-container { margin-bottom: 11px; }
 body[data-size="larger"] .textarea-container { margin-bottom: 18px; }
+
+/* Add styles for infoToggleButton */
+#infoToggleButton {
+    background-color: #fff; /* Match sizeCycleButton */
+    border-radius: 0;
+    line-height: 1;
+    text-align: center;
+    /* flex-grow: 1; */ /* Already added per size */
+    /* Ensure consistent styling with saveButton */
+    border-style: solid;
+    border-color: #111;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0; /* Allow button to shrink if needed */
+}
+
+#infoToggleButton:hover {
+    background-color: #f5f5f5; /* Match sizeCycleButton hover */
+}
+
+/* Info Panel Styles */
+.info-panel {
+    /* display: none; */ /* Replaced by max-height/opacity */
+    background-color: #e9e9e9;
+    border: 1px solid #ccc;
+    border-top: none;
+    /* padding: 10px 15px; */ /* Vertical padding handled by transition */
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 0.85em; /* Reduced base font size */
+    color: #333;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+    overflow: hidden; /* Important for max-height transition */
+    max-height: 0; /* Hidden by default */
+    opacity: 0; /* Hidden by default */
+    transition: max-height 0.35s ease-out, opacity 0.3s ease-in, padding-top 0.35s ease-out, padding-bottom 0.35s ease-out, margin-top 0.35s ease-out, margin-bottom 0.35s ease-out; /* Smooth transition */
+}
+
+.info-panel.visible {
+    /* display: block; */ /* Not needed */
+    max-height: 500px; /* Set to a value larger than content height */
+    opacity: 1;
+    padding-top: 10px; /* Restore padding */
+    padding-bottom: 10px; /* Restore padding */
+    margin-top: 20px; /* Increased top margin */
+    margin-bottom: 10px; /* Restore margin */
+}
+
+.info-panel h4 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    color: #111;
+}
+
+.info-panel p, .info-panel ul {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.info-panel ul {
+    padding-left: 20px;
+    list-style: disc;
+}
+
+.info-panel code {
+    background-color: #d0d0d0;
+    padding: 1px 3px;
+    border-radius: 2px;
+    border: 1px solid #bbb;
+}
+
+/* Size adjustments for info panel text */
+body[data-size="smaller"] .info-panel { font-size: 0.75em; padding-left: 12px; padding-right: 12px; } /* Adjusted smaller size */
+body[data-size="smaller"] .info-panel.visible { padding-top: 8px; padding-bottom: 8px; }
+body[data-size="smaller"] .info-panel h4 { font-size: 1em; }
+
+body[data-size="larger"] .info-panel { font-size: 0.85em; padding-left: 18px; padding-right: 18px; } /* Adjusted larger size */
+body[data-size="larger"] .info-panel.visible { padding-top: 12px; padding-bottom: 12px; }
+body[data-size="larger"] .info-panel h4 { font-size: 1.2em; }
+
+/* App disabled state */
+body.app-disabled textarea,
+body.app-disabled #saveButton,
+body.app-disabled #infoToggleButton,
+body.app-disabled #sizeCycleButton { /* Removed .info-button */
+    opacity: 0.4;
+    pointer-events: none;
+}
+/* Special handling for info-panel when disabled */
+body.app-disabled .info-panel {
+    opacity: 0; /* Ensure it's fully transparent */
+    max-height: 0; /* Ensure it's collapsed */
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0; /* Ensure margin is reset */
+    margin-bottom: 0;
+    pointer-events: none;
+    transition: none; /* Prevent transition when disabling */
+}

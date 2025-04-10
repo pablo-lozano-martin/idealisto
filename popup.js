@@ -3,8 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const saveButton = document.getElementById('saveButton');
     const sizeCycleButton = document.getElementById('sizeCycleButton');
     const powerButton = document.getElementById('powerButton');
+    const infoToggleButton = document.getElementById('infoToggleButton');
+    const infoPanel = document.getElementById('infoPanel'); // Get reference to info panel
     const sizeSelectorButtons = document.querySelectorAll('.size-selector button');
-    const defaultTemplate = "Hola, vi tu anuncio en Idealista para la propiedad en {calle}, {numero} ({barrio}, {ciudad}). ¿Sigue disponible?";
+    const defaultTemplate = "Hola! Vi tu anuncio en Idealista para la propiedad en {calle}, {numero} ({barrio}, {ciudad}). ¿Sigue disponible?";
     const defaultSize = 'medium';
     const sizeCycle = ['medium', 'larger', 'smaller'];
     const sizeLabels = {
@@ -24,14 +26,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to update UI based on extension enabled/disabled state
     function updatePowerState(isEnabled) {
+        const elementsToToggle = [
+            messageTemplateTextarea,
+            saveButton,
+            sizeCycleButton,
+            infoToggleButton // Removed document.getElementById('infoButton')
+        ];
+
         if (isEnabled) {
             document.body.classList.remove('app-disabled');
             powerButton.classList.remove('off');
             powerButton.title = 'Desactivar extensión';
+            elementsToToggle.forEach(el => el && el.removeAttribute('disabled')); // Re-enable elements visually if needed (CSS handles pointer events)
+            infoPanel.classList.remove('visible'); // Ensure panel is hidden initially when enabled
         } else {
             document.body.classList.add('app-disabled');
             powerButton.classList.add('off');
             powerButton.title = 'Activar extensión';
+            elementsToToggle.forEach(el => el && el.setAttribute('disabled', 'true')); // Disable elements visually if needed (CSS handles pointer events)
+            infoPanel.classList.remove('visible'); // Hide panel when disabling
         }
     }
 
@@ -99,5 +112,11 @@ document.addEventListener('DOMContentLoaded', () => {
         chrome.storage.sync.set({ popupSize: newSize }, () => {
             console.log(`Popup size saved: ${newSize}`);
         });
+    });
+
+    // Handle info toggle button click
+    infoToggleButton.addEventListener('click', () => {
+        console.log('Información button clicked.');
+        infoPanel.classList.toggle('visible'); // Toggle visibility class
     });
 });

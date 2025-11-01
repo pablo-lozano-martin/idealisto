@@ -1,5 +1,7 @@
 # idealisto
 
+![Idealisto Screenshot](idealisto.jpeg)
+
 Chrome extension that streamlines property inquiries on Idealista by automatically opening WhatsApp Web when clicking "Ver teléfono".
 
 ## ✨ Features
